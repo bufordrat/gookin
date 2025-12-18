@@ -11,7 +11,7 @@ int main ()
   char buffer[BSIZE];
   char *r, *entry;
   int items, x;
-  char **list_base;
+  /* char **list_base; */
 
   fp = fopen (filename, "r");
 
@@ -23,7 +23,10 @@ int main ()
 
   items = 0;
 
-  list_base = (char **) malloc (sizeof (char *) * 1000);
+  char *list_base[1000];
+
+  /* list_base = (char **) malloc (sizeof (char *) * 1000); */
+
   if (list_base == NULL)
     {
       fprintf (stderr, "Unable to allocate memory.\n");
@@ -37,6 +40,7 @@ int main ()
 	{
 	  break;
 	}
+      
       entry = (char *) malloc (sizeof (char) * strlen (buffer) + 1);
       if (entry == NULL)
 	{
